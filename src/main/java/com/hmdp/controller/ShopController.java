@@ -56,8 +56,7 @@ public class ShopController {
      */
     @PutMapping
     public Result updateShop(@RequestBody Shop shop) {
-        // 写入数据库
-
+        // [缓存一致性：基于 Cache Aside 模式解决数据库与缓存的一致性问题]
         return shopService.update(shop);
     }
 

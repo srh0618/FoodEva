@@ -42,6 +42,7 @@ public class CacheClient {
         stringRedisTemplate.opsForValue().set(key, JSONUtil.toJsonStr(redisData));
     }
 
+    //缓存穿透
     public <R,ID> R queryWithPassThrough(
             String keyPrefix, ID id, Class<R> type, Function<ID, R> dbFallback, Long time, TimeUnit unit){
         String key = keyPrefix + id;
@@ -72,6 +73,8 @@ public class CacheClient {
         return r;
     }
 
+
+    // 缓存雪崩
     public <R, ID> R queryWithLogicalExpire(
             String keyPrefix, ID id, Class<R> type, Function<ID, R> dbFallback, Long time, TimeUnit unit) {
         String key = keyPrefix + id;
@@ -98,7 +101,8 @@ public class CacheClient {
         boolean isLock = tryLock(lockKey);
         // 6.2.判断是否获取锁成功
         if (isLock){
-            // 6.3.成功，开启独立线程，实现缓存重建
+            // 6.3.成功，开启独立线程，使用线程池（CACHE_REBUILD_EXECUTOR）异步执行数据库查询和缓存重建。
+            // [注意，要加]双重检查锁：在获取锁后，先检查缓存是否已被更新。如果已更新，直接返回；如果未更新，再执行数据库查询和缓存重建。
             CACHE_REBUILD_EXECUTOR.submit(() -> {
                 try {
                     // 查询数据库
@@ -117,6 +121,7 @@ public class CacheClient {
         return r;
     }
 
+    // 缓存击穿
     public <R, ID> R queryWithMutex(
             String keyPrefix, ID id, Class<R> type, Function<ID, R> dbFallback, Long time, TimeUnit unit) {
         String key = keyPrefix + id;

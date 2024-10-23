@@ -72,15 +72,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (RegexUtils.isPhoneInvalid(phone)) {
             return Result.fail("手机号格式错误");
         }
-        //校验验证码
+//        校验验证码
 //        Object cacheCode = session.getAttribute("code");
-        //从redis获取验证码并校验
-//        String cacheCode = stringRedisTemplate.opsForValue().get(LOGIN_CODE_KEY+phone);
-//
-//        String code = loginForm.getCode();
-//        if (cacheCode == null || !cacheCode.equals(code)) {
-//            return Result.fail("验证码错误");
-//        }
+//        从redis获取验证码并校验
+        String cacheCode = stringRedisTemplate.opsForValue().get(LOGIN_CODE_KEY+phone);
+
+        String code = loginForm.getCode();
+        if (cacheCode == null || !cacheCode.equals(code)) {
+            return Result.fail("验证码错误");
+        }
         User user = query().eq("phone", phone).one();
         if (user == null) {
             //用户不存在则创建用户
@@ -90,7 +90,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         //保存用户信息到redis
         //随机生成Token作为登录令牌
         String token = UUID.randomUUID().toString(true);
-        //将user对象转为hashmap存储
+        //将user对象转为hashmap存储。原因：Redis 支持哈希结构，使用 Map 可以直接存储为哈希键值对，方便管理和访问。
         UserDTO userDTO = BeanUtil.copyProperties(user, UserDTO.class);
         Map<String, Object> userMap = BeanUtil.beanToMap(userDTO, new HashMap<>(),
                 CopyOptions.create()
