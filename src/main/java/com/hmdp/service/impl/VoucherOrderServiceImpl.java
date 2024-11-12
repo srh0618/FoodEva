@@ -11,6 +11,7 @@ import com.hmdp.service.IVoucherOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hmdp.utils.RedisIdWorker;
 import com.hmdp.utils.UserHolder;
+import com.sun.xml.internal.bind.v2.TODO;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -136,10 +137,13 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
         }
     }
 
+    // [用乐观锁解决秒杀产生的超卖问题][一人一单]
     private void createVoucherOrder(VoucherOrder voucherOrder) {
+        // 一人一单
         Long userId = voucherOrder.getUserId();
         Long voucherId = voucherOrder.getVoucherId();
         // 创建锁对象
+        // TODO:redisson 只在这一个地方用了，底层原理待研究
         RLock redisLock = redissonClient.getLock("lock:order:" + userId);
         // 尝试获取锁
         boolean isLock = redisLock.tryLock();
@@ -182,7 +186,7 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
     public Result seckillVoucher(Long voucherId) {
         Long userId = UserHolder.getUser().getId();
         long orderId = redisIdWorker.nextId("order");
-        // 1.执行lua脚本
+        // 1.执行lua脚本————lua脚本缺点：不可重试，不可重入，在使用Redis环境中，日志信息可能有限导致调试困难
         Long result = stringRedisTemplate.execute(
                 SECKILL_SCRIPT,
                 //因为lua脚本不需要key类型的参数

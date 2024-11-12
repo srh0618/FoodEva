@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="firsttime">
+    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="验证码登录、缓存一致性、优惠券秒杀梳理完毕">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/CacheClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/CacheClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/UserHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/UserHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/ShopServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/VoucherOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/VoucherOrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +100,21 @@
       <workItem from="1729587534668" duration="111000" />
       <workItem from="1729587704643" duration="145000" />
       <workItem from="1729587857304" duration="1205000" />
-      <workItem from="1729678840231" duration="6071000" />
+      <workItem from="1729678840231" duration="6237000" />
+      <workItem from="1729735260396" duration="7059000" />
+      <workItem from="1730284456554" duration="3762000" />
+      <workItem from="1730422127623" duration="599000" />
+      <workItem from="1730544176759" duration="599000" />
+      <workItem from="1730629497962" duration="1000" />
+      <workItem from="1730685827047" duration="1203000" />
+      <workItem from="1730728325277" duration="10000" />
+      <workItem from="1730768166170" duration="600000" />
+      <workItem from="1730770488423" duration="4351000" />
+      <workItem from="1730803504798" duration="12000" />
+      <workItem from="1731305794097" duration="699000" />
+      <workItem from="1731376964319" duration="883000" />
+      <workItem from="1731387168644" duration="2488000" />
+      <workItem from="1731391675143" duration="1156000" />
     </task>
     <task id="LOCAL-00001" summary="firsttime">
       <option name="closed" value="true" />
@@ -128,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729588350449</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="验证码登录、缓存一致性、优惠券秒杀梳理完毕">
+      <option name="closed" value="true" />
+      <created>1729686284749</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729686284749</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +170,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="firsttime" />
-    <option name="LAST_COMMIT_MESSAGE" value="firsttime" />
+    <MESSAGE value="验证码登录、缓存一致性、优惠券秒杀梳理完毕" />
+    <option name="LAST_COMMIT_MESSAGE" value="验证码登录、缓存一致性、优惠券秒杀梳理完毕" />
   </component>
 </project>
