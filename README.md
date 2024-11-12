@@ -1,6 +1,7 @@
 # FoodEval
 **技术栈**：SpringBoot+Mysql+Mybatis-plus+redis+Hutool+Lombok\
-**项目描述**：基于Redis + Springboot的点评APP,实现了短信验证码登录、查找店铺、秒杀优惠券、发表点评、关注推送的完整业务流程\
+**项目描述**：\
+基于Redis + Springboot的点评APP,实现了短信验证码登录、查找店铺、秒杀优惠券、发表点评、关注推送的完整业务流程\
 验证码登录：使用 Redis 实现验证码、token 的存储，解决了在集群模式下的 Session 共享问题，实现了向邮箱发送验证码进行登录，通过 ThreadLocal 配合拦截器进行 token 校验，实现用户的登录校验和权限刷新；\
 缓存一致性：基于 Cache Aside + 延迟双删 解决高并发场景下数据库与缓存的一致性问题；\
 高性能查询：使用 Redis 对高频访问的信息进行缓存，降低了数据库查询的压力，解决了缓存穿透、缓存雪崩问题；\
