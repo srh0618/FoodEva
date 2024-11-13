@@ -20,6 +20,8 @@ public class RedisConstants {
     public static final String SHOP_GEO_KEY = "shop:geo:";
     public static final String USER_SIGN_KEY = "sign:";
 
-    // 定义延迟双删策略的延迟时间，例如500毫秒
+    // 定义 延迟双删策略 的延迟时间，例如500毫秒
     public static final long DELAY_TIME = 500;
+    //数据库查询超时时间
+    public static final long DB_QUERY_TIMEOUT = 5000;
 }

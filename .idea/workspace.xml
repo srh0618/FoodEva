@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="验证码登录、缓存一致性、优惠券秒杀梳理完毕">
+    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="cache aside+延迟双删">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/ShopServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/VoucherOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/VoucherOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/CacheClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/CacheClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RedisConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RedisConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +115,10 @@
       <workItem from="1731305794097" duration="699000" />
       <workItem from="1731376964319" duration="883000" />
       <workItem from="1731387168644" duration="2488000" />
-      <workItem from="1731391675143" duration="1156000" />
+      <workItem from="1731391675143" duration="1914000" />
+      <workItem from="1731400832970" duration="4497000" />
+      <workItem from="1731410273700" duration="958000" />
+      <workItem from="1731461949794" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="firsttime">
       <option name="closed" value="true" />
@@ -148,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729686284749</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="cache aside+延迟双删">
+      <option name="closed" value="true" />
+      <created>1731399491808</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731399491808</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +183,7 @@
     </ignored-roots>
     <MESSAGE value="firsttime" />
     <MESSAGE value="验证码登录、缓存一致性、优惠券秒杀梳理完毕" />
-    <option name="LAST_COMMIT_MESSAGE" value="验证码登录、缓存一致性、优惠券秒杀梳理完毕" />
+    <MESSAGE value="cache aside+延迟双删" />
+    <option name="LAST_COMMIT_MESSAGE" value="cache aside+延迟双删" />
   </component>
 </project>
