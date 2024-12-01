@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="cache aside+延迟双删">
+    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="缓存雪崩+future超时控制">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/MailUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/ShopServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/CacheClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/CacheClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RedisConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RedisConstants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -118,7 +123,18 @@
       <workItem from="1731391675143" duration="1914000" />
       <workItem from="1731400832970" duration="4497000" />
       <workItem from="1731410273700" duration="958000" />
-      <workItem from="1731461949794" duration="343000" />
+      <workItem from="1731461949794" duration="781000" />
+      <workItem from="1731465132532" duration="6323000" />
+      <workItem from="1731493706176" duration="1437000" />
+      <workItem from="1731722353100" duration="2496000" />
+      <workItem from="1731811784440" duration="3177000" />
+      <workItem from="1731984313215" duration="1779000" />
+      <workItem from="1732003982638" duration="1488000" />
+      <workItem from="1732421953232" duration="602000" />
+      <workItem from="1732446621169" duration="4000" />
+      <workItem from="1732784108544" duration="1454000" />
+      <workItem from="1733034148310" duration="177000" />
+      <workItem from="1733035058959" duration="60000" />
     </task>
     <task id="LOCAL-00001" summary="firsttime">
       <option name="closed" value="true" />
@@ -160,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731399491808</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="缓存雪崩+future超时控制">
+      <option name="closed" value="true" />
+      <created>1731462331240</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1731462331240</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +208,7 @@
     <MESSAGE value="firsttime" />
     <MESSAGE value="验证码登录、缓存一致性、优惠券秒杀梳理完毕" />
     <MESSAGE value="cache aside+延迟双删" />
-    <option name="LAST_COMMIT_MESSAGE" value="cache aside+延迟双删" />
+    <MESSAGE value="缓存雪崩+future超时控制" />
+    <option name="LAST_COMMIT_MESSAGE" value="缓存雪崩+future超时控制" />
   </component>
 </project>
