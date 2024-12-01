@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="缓存雪崩+future超时控制">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/MailUtil.java" afterDir="false" />
+    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="邮箱登录">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/MailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/MailUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/hmdp/HmDianPingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hmdp/HmDianPingApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/ShopServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/ShopServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/VoucherOrderServiceImpl$VoucherOrderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/VoucherOrderServiceImpl$VoucherOrderHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/VoucherOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/VoucherOrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/utils/CacheClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/utils/CacheClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/utils/RedisConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/utils/RedisConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/utils/UserHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/utils/UserHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/hmdp/HmDianPingApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/hmdp/HmDianPingApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +66,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JUnit.HmDianPingApplicationTests.testSendMail.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -74,10 +86,43 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.MailUtils.executor&quot;: &quot;Run&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunManager" selected="JUnit.HmDianPingApplicationTests.testSendMail">
+    <configuration name="MailUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hmdp.utils.MailUtils" />
+      <module name="hm-dianping" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hmdp.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HmDianPingApplicationTests.testSendMail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hm-dianping" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hmdp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hmdp" />
+      <option name="MAIN_CLASS_NAME" value="com.hmdp.HmDianPingApplicationTests" />
+      <option name="METHOD_NAME" value="testSendMail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HmDianPingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="hm-dianping" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.hmdp.HmDianPingApplication" />
@@ -85,6 +130,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HmDianPingApplicationTests.testSendMail" />
+        <item itemvalue="应用程序.MailUtils" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -135,6 +186,8 @@
       <workItem from="1732784108544" duration="1454000" />
       <workItem from="1733034148310" duration="177000" />
       <workItem from="1733035058959" duration="60000" />
+      <workItem from="1733035165023" duration="3442000" />
+      <workItem from="1733038629393" duration="2551000" />
     </task>
     <task id="LOCAL-00001" summary="firsttime">
       <option name="closed" value="true" />
@@ -184,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731462331240</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="邮箱登录">
+      <option name="closed" value="true" />
+      <created>1733035272545</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733035272545</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +270,7 @@
     <MESSAGE value="验证码登录、缓存一致性、优惠券秒杀梳理完毕" />
     <MESSAGE value="cache aside+延迟双删" />
     <MESSAGE value="缓存雪崩+future超时控制" />
-    <option name="LAST_COMMIT_MESSAGE" value="缓存雪崩+future超时控制" />
+    <MESSAGE value="邮箱登录" />
+    <option name="LAST_COMMIT_MESSAGE" value="邮箱登录" />
   </component>
 </project>

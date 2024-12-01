@@ -1,9 +1,18 @@
 package com.hmdp.utils;
 
+import com.sun.mail.util.MailSSLSocketFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ListOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Component;
+
+import java.security.GeneralSecurityException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;
@@ -14,25 +23,68 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
 
+import static com.hmdp.utils.RedisConstants.MAX_SENDS;
+
+@Component
 public class MailUtils {
-    public static void main(String[] args) throws MessagingException {
-        //可以在这里直接测试方法，填自己的邮箱即可
-        sendTestMail("3045785105@qq.com", new MailUtils().achieveCode());
+    private final StringRedisTemplate stringRedisTemplate;
+
+    private static final long TIME_LIMIT = TimeUnit.MINUTES.toMillis(10);  // 10分钟的时间限制
+    public MailUtils(StringRedisTemplate stringRedisTemplate) {
+        this.stringRedisTemplate = stringRedisTemplate;
     }
 
-    public static void sendTestMail(String email, String code) throws MessagingException {
+    public boolean canSendCode(String email) {
+        long currentTime = System.currentTimeMillis();
+        String key = "emailSendHistory:" + email;  // 使用邮箱地址作为 key
+
+        // 获取 Redis 中的 ListOperations
+        ListOperations<String, String> listOps = stringRedisTemplate.opsForList();
+
+        // 获取该邮箱的发送记录（存储在 Redis 的列表中）
+        List<String> sendHistory = listOps.range(key, 0, -1);
+
+        // 清理超过10分钟的记录
+        if (sendHistory != null) {
+            sendHistory.removeIf(timestamp -> currentTime - Long.parseLong(timestamp) > TIME_LIMIT);
+        }
+
+        // 判断该用户在过去10分钟内是否已经发送了3条验证码
+        if (sendHistory == null || sendHistory.size() < MAX_SENDS) {
+            // 将当前时间戳添加到 Redis 列表
+            listOps.rightPush(key, String.valueOf(currentTime));
+            stringRedisTemplate.expire(key, TIME_LIMIT, TimeUnit.MILLISECONDS);  // 设置 key 的过期时间为10分钟
+            return true;  // 可以发送验证码
+        }
+
+        return false;  // 超过限制，不能发送
+    }
+
+    public void sendTestMail(String email, String code) throws MessagingException, GeneralSecurityException {
+        // 如果不能发送验证码，则返回
+        if (!canSendCode(email)) {
+            System.out.println("10分钟内最多发送3条验证码，请稍后再试.");
+            return;
+        }
         // 创建Properties 类用于记录邮箱的一些属性
         Properties props = new Properties();
         // 表示SMTP发送邮件，必须进行身份验证
         props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.ssl.enable", "true");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2"); // 指定SSL版本
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.smtp.ssl.socketFactory", mailSSLSocketFactory);
+
         //此处填写SMTP服务器
         props.put("mail.smtp.host", "smtp.qq.com");
         //端口号，QQ邮箱端口587
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.port", "465");
+//        props.put("mail.smtp.port", "587");
         // 此处填写，写信人的账号
         props.put("mail.user", "3045785105@qq.com");
         // 此处填写16位STMP口令
-        props.put("mail.password", "rntirptscxqmdchb");
+        props.put("mail.password", "mrzugzpusnxudcdh");
         // 构建授权信息，用于进行SMTP进行身份验证
         Authenticator authenticator = new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {

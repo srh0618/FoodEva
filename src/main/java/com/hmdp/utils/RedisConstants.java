@@ -24,4 +24,6 @@ public class RedisConstants {
     public static final long DELAY_TIME = 500;
     //数据库查询超时时间
     public static final long DB_QUERY_TIMEOUT = 5000;
+
+    public static final int MAX_SENDS = 3;  // 邮件最多发送次数
 }

@@ -9,6 +9,7 @@ import com.hmdp.entity.User;
 import com.hmdp.service.impl.ShopServiceImpl;
 import com.hmdp.service.impl.UserServiceImpl;
 import com.hmdp.utils.CacheClient;
+import com.hmdp.utils.MailUtils;
 import com.hmdp.utils.RedisIdWorker;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,9 +18,11 @@ import org.springframework.data.redis.connection.RedisGeoCommands;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
+import javax.mail.MessagingException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,6 +51,9 @@ class HmDianPingApplicationTests {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
+
+    @Resource
+    private MailUtils mailUtils;
 
     private ExecutorService es = Executors.newFixedThreadPool(500);
 
@@ -139,6 +145,21 @@ class HmDianPingApplicationTests {
         }
     }
 
+    @Test
+    void testSendMail() throws MessagingException, GeneralSecurityException {
+        String email = "3045785105@qq.com";
+        String code = MailUtils.achieveCode();  // 生成验证码
+
+        // 模拟邮箱发送验证码
+        boolean canSend = mailUtils.canSendCode(email);  // 检查是否可以发送验证码
+        System.out.println("cansend：" + canSend);
+        if (canSend) {
+            mailUtils.sendTestMail(email, code);  // 发送邮件
+            System.out.println("验证码已发送到邮箱：" + email);
+        } else {
+            System.out.println("10分钟内最多发送3条验证码，请稍后再试.");
+        }
+    }
 
 
 }
