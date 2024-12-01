@@ -25,5 +25,5 @@ public class RedisConstants {
     //数据库查询超时时间
     public static final long DB_QUERY_TIMEOUT = 5000;
 
-    public static final int MAX_SENDS = 3;  // 邮件最多发送次数
+    public static final int MAX_SENDS = 6;  // 邮件最多发送次数为3次(发一次邮件会向redis里存两对key-value，目前原因未知)
 }

@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="邮箱登录">
+    <list default="true" id="16b2cff0-4202-44fb-adec-d30b10d1e4b2" name="更改" comment="限制发送邮件次数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/MailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/MailUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/hmdp/HmDianPingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/hmdp/HmDianPingApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/controller/ShopController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/ShopServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/ShopServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/VoucherOrderServiceImpl$VoucherOrderHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/VoucherOrderServiceImpl$VoucherOrderHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/VoucherOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/service/impl/VoucherOrderServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/utils/CacheClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/utils/CacheClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RedisConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RedisConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/utils/RedisConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/utils/RedisConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hmdp/utils/UserHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hmdp/utils/UserHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/hmdp/HmDianPingApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/hmdp/HmDianPingApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +179,7 @@
       <workItem from="1733034148310" duration="177000" />
       <workItem from="1733035058959" duration="60000" />
       <workItem from="1733035165023" duration="3442000" />
-      <workItem from="1733038629393" duration="2551000" />
+      <workItem from="1733038629393" duration="3181000" />
     </task>
     <task id="LOCAL-00001" summary="firsttime">
       <option name="closed" value="true" />
@@ -245,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733035272545</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="限制发送邮件次数">
+      <option name="closed" value="true" />
+      <created>1733041773707</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733041773707</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +271,7 @@
     <MESSAGE value="cache aside+延迟双删" />
     <MESSAGE value="缓存雪崩+future超时控制" />
     <MESSAGE value="邮箱登录" />
-    <option name="LAST_COMMIT_MESSAGE" value="邮箱登录" />
+    <MESSAGE value="限制发送邮件次数" />
+    <option name="LAST_COMMIT_MESSAGE" value="限制发送邮件次数" />
   </component>
 </project>
