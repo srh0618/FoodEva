@@ -3,7 +3,9 @@ package com.hmdp.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.BooleanUtil;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.hmdp.dto.Result;
+import com.hmdp.entity.SeckillVoucher;
 import com.hmdp.entity.VoucherOrder;
 import com.hmdp.mapper.VoucherOrderMapper;
 import com.hmdp.service.ISeckillVoucherService;
@@ -143,7 +145,6 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
         Long userId = voucherOrder.getUserId();
         Long voucherId = voucherOrder.getVoucherId();
         // 创建锁对象
-        // TODO:redisson 只在这一个地方用了，底层原理待研究
         RLock redisLock = redissonClient.getLock("lock:order:" + userId);
         // 尝试获取锁
         boolean isLock = redisLock.tryLock();
@@ -165,11 +166,17 @@ public class VoucherOrderServiceImpl extends ServiceImpl<VoucherOrderMapper, Vou
             }
 
             // 6.扣减库存
-            boolean success = seckillVoucherService.update()
-                    .setSql("stock = stock - 1") // set stock = stock - 1
-                    .eq("voucher_id", voucherId).gt("stock", 0) // where id = ? and stock > 0
-                    .update();
-            if (!success) {
+//            boolean success = seckillVoucherService.update()
+//                    .setSql("stock = stock - 1") // set stock = stock - 1
+//                    .eq("voucher_id", voucherId).gt("stock", 0) // where id = ? and stock > 0
+//                    .update();
+            int result = baseMapper.update(null, new UpdateWrapper<SeckillVoucher>()
+                    .setSql("stock = stock - 1") // 扣减库存
+                    .eq("voucher_id", voucherId) // 针对指定的商品ID
+                    .gt("stock", 0) // 确保库存大于0
+                    .last("FOR UPDATE") // 使用 FOR UPDATE 锁定行
+            );
+            if (result == 0) {
                 // 扣减失败
                 log.error("库存不足！");
                 return;

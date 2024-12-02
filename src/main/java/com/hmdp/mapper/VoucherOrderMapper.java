@@ -1,5 +1,7 @@
 package com.hmdp.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.hmdp.entity.SeckillVoucher;
 import com.hmdp.entity.VoucherOrder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface VoucherOrderMapper extends BaseMapper<VoucherOrder> {
 
+    int update(VoucherOrder entity, UpdateWrapper<SeckillVoucher> last);
 }
