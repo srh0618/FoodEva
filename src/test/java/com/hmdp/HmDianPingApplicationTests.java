@@ -129,7 +129,7 @@ class HmDianPingApplicationTests {
     @Test
     public void createToken() throws IOException {
         List<User> list = userService.list();
-        PrintWriter printWriter = new PrintWriter(new FileWriter("E:\\token.txt"));
+        PrintWriter printWriter = new PrintWriter(new FileWriter("E:/IDEA/IDEAProject/dianping/token.txt"));
         for(User user: list){
             String token = UUID.randomUUID().toString(true);
             UserDTO userDTO = BeanUtil.copyProperties(user, UserDTO.class);

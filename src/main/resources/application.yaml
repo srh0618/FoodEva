@@ -31,6 +31,26 @@ spring:
     default-property-inclusion: non_null # JSON处理时忽略非空字段
 mybatis-plus:
   type-aliases-package: com.hmdp.entity # 别名扫描包
+  # RabbitMQ配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+    publisher-confirm-type: correlated  # 确认消息已发送到交换机（交互类型）
+    publisher-returns: true
+    template:
+      mandatory: true #设置为 true 后 消费者在消息没有被路由到合适队列情况下会被return监听，而不会自动删除
+    # 消费者配置
+    listener:
+      direct:
+        auto-startup: true
+        retry:
+          enabled: true
+          max-attempts: 3
+      simple:
+        acknowledge-mode: manual  # 设置消费者为手动确认模式
 logging:
   level:
     com.hmdp: debug
